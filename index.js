@@ -39,6 +39,11 @@ async function run() {
         const orderCollection = client.db('geniusCar').collection('order');
 
 
+
+        app.get('/', (req, res) => {
+            res.send("responding genius car site from server");
+        });
+        
         // Auth 
 
         app.post('/login', async (req, res) => {
@@ -137,11 +142,6 @@ async function run() {
 }
 
 
-
-
-app.get('/', (req, res) => {
-    res.send("responding genius car site from server");
-});
 
 app.listen(port, () => {
     console.log('listening to port', port);
