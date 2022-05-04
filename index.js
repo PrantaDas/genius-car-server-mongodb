@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -39,11 +39,6 @@ async function run() {
         const orderCollection = client.db('geniusCar').collection('order');
 
 
-
-        app.get('/', (req, res) => {
-            res.send("responding genius car site from server");
-        });
-        
         // Auth 
 
         app.post('/login', async (req, res) => {
@@ -140,11 +135,13 @@ async function run() {
 
     }
 }
+app.get('/', (req, res) => {
+    res.send("responding genius car site from server");
+});
 
 
-
-app.listen(port, () => {
-    console.log('listening to port', port);
+app.listen(process.env.PORT || 5000, () => {
+    console.log('listening to port');
 });
 
 run().catch(console.dir);
