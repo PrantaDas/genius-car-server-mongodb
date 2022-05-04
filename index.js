@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -140,8 +140,8 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log('listening to port');
+app.listen(port, () => {
+    console.log('listening to port',port);
 });
 
 run().catch(console.dir);
